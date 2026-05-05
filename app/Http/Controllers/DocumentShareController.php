@@ -6,6 +6,7 @@ use App\Models\Document;
 use App\Models\DocumentShare;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class DocumentShareController extends Controller
 {
@@ -18,7 +19,13 @@ class DocumentShareController extends Controller
             'permission' => ['required', 'in:view,edit'],
         ]);
 
-        $shareWith = User::where('email', $validated['email'])->firstOrFail();
+        $shareWith = User::whereRaw('LOWER(email) = ?', [strtolower($validated['email'])])->first();
+
+        if (! $shareWith) {
+            throw ValidationException::withMessages([
+                'email' => 'No user found with this email address.',
+            ]);
+        }
 
         if ($shareWith->id === $request->user()->id) {
             return back()->withErrors(['email' => 'You cannot share a document with yourself.']);
