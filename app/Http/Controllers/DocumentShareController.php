@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DocumentSharedMail;
 use App\Models\Document;
 use App\Models\DocumentShare;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class DocumentShareController extends Controller
@@ -42,7 +44,15 @@ class DocumentShareController extends Controller
             ],
         );
 
-        return back()->with('status', 'Sharing updated.');
+        Mail::to($shareWith->email)->send(
+            new DocumentSharedMail(
+                document: $document,
+                sharedBy: $request->user(),
+                permission: $validated['permission'],
+            )
+        );
+
+        return back()->with('status', 'Sharing updated and email sent.');
     }
 
     public function destroy(Request $request, Document $document, DocumentShare $share)
