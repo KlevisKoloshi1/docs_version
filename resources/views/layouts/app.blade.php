@@ -12,7 +12,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 font-sans antialiased text-gray-900">
+<body class="bg-zinc-50 font-sans antialiased text-zinc-900">
     <div class="min-h-screen">
         @auth
             @include('layouts.sidebar')

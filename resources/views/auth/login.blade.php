@@ -27,21 +27,21 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <input id="remember_me" type="checkbox" class="rounded border-zinc-300 text-brand-600 shadow-sm focus:ring-brand-500" name="remember">
+                <span class="ms-2 text-sm text-zinc-600">{{ __('Remember me') }}</span>
             </label>
         </div>
 
         <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-4">
                 @if (Route::has('register'))
-                    <a class="text-sm text-blue-600 hover:text-blue-700" href="{{ route('register') }}">
+                    <a class="text-sm text-brand-600 hover:text-brand-700" href="{{ route('register') }}">
                         {{ __('Create an account') }}
                     </a>
                 @endif
 
                 @if (Route::has('password.request'))
-                    <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="text-sm text-zinc-500 hover:text-zinc-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
