@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@layer components {
+    .sidebar-link {
+        @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-150;
+    }
+    .sidebar-link-active {
+        @apply bg-white/10 text-white;
+    }
+    .sidebar-link-inactive {
+        @apply text-slate-300 hover:bg-white/5 hover:text-white;
+    }
+    .card {
+        @apply rounded-xl bg-white border border-zinc-200 shadow-card;
+    }
+    .badge {
+        @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+    }
+}
