@@ -12,21 +12,25 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 brand: {
-                    50:  '#eef2ff',
-                    100: '#e0e7ff',
-                    200: '#c7d2fe',
-                    300: '#a5b4fc',
-                    400: '#818cf8',
-                    500: '#6366f1',
-                    600: '#4f46e5',
-                    700: '#4338ca',
-                    800: '#3730a3',
-                    900: '#312e81',
+                    50:  '#f0f4ff',
+                    100: '#e0e9ff',
+                    200: '#c2d1ff',
+                    300: '#93aeff',
+                    400: '#6080ff',
+                    500: '#3d5afe',
+                    600: '#2541f5',
+                    700: '#1a30d4',
+                    800: '#1828ab',
+                    900: '#192587',
                 },
+            },
+            boxShadow: {
+                'card': '0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04)',
+                'card-hover': '0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -1px rgb(0 0 0 / 0.04)',
             },
         },
     },
